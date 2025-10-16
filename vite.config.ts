@@ -5,11 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  base: mode === 'development' ? '/' : '/GL/',
+  base: '/GL/',
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
@@ -19,13 +15,20 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    assetsDir: 'assets',
     rollupOptions: {
       output: {
-        manualChunks: undefined,
-        assetFileNames: 'assets/[name].[ext]',
-        chunkFileNames: 'assets/[name].[hash].js',
-        entryFileNames: 'assets/[name].[hash].js',
+        entryFileNames: `assets/[name].[hash].js`,
+        chunkFileNames: `assets/[name].[hash].js`,
+        assetFileNames: `assets/[name].[hash].[ext]`,
       },
+    },
+  },
+  server: {
+    port: 8080,
+    host: true,
+    fs: {
+      strict: false,
     },
   },
 }));
