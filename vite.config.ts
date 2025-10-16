@@ -21,10 +21,17 @@ export default defineConfig({
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js'
       }
-    }
+    },
+    assetsDir: 'assets',
+    emptyOutDir: true,
+    cssCodeSplit: true
   },
   server: {
     port: 3000,
+    open: true
+  },
+  preview: {
+    port: 4173,
     open: true
   }
 });

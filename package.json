@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://b00832724-collab.github.io/GL",
+  "homepage": "https://b00832724-collab.github.io/GL/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
